@@ -4,14 +4,20 @@ import sys
 import os
 import requests
 import string
+import random
 from xml.etree import ElementTree
 if int(sys.argv[2])>7:
   sys.exit ("ERROR: Invalid output type.  Use types 1-7, see iggyvolz.github.io/korra-dl/types.html for details")
 episodehash={
-211:"4edc8504-22f2-11e4-b48f-0026b9414f30"
+  211:"ab6c4cfc-3ee9-4127-b703-a4c6f46fe0a9"
   }.get(int(sys.argv[1]),None)
 if episodehash is None:
   sys.exit("ERROR: Invalid episode number.  Episode numbers should be in the following format: Season number (1-3) followed by episode number (01-14)")
-r=requests.get("http://media-utils-api.mtvnservices.com/services/MediaGenerator/mgid:arc:video:nick.com:"+episodehash+"?arcStage=live")
-url=ElementTree.XML(r.text)[0][0][int(sys.argv[2])-1][0].text
-os.system("ffmpeg -i "+url+" "+sys.argv[3])
+r=requests.get("http://udat.mtvnservices.com/service1/dispatch.htm?feed=nick_arc_player_prime&plugin.stage=live&mgid=mgid:arc:episode:nick.com:"+episodehash)
+randomstring=''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
+for (i,item) in enumerate(ElementTree.XML(r.text)[0].findall("item")):
+  s=requests.get(item[4][0].get("url"))
+  url=ElementTree.XML(s.text)[0][0][int(sys.argv[2])-1][0].text
+  os.system("ffmpeg -i "+url+" /tmp/korra-dl-"+randomstring+"_"+str(i)+".mp4")
+  os.system('echo "file \'/tmp/korra-dl-'+randomstring+'_'+str(i)+'.mp4\'">>/tmp/korra-dl-'+randomstring+'_cache')
+os.system('ffmpeg -f concat -i /tmp/korra-dl-'+randomstring+'_cache -c copy '+sys.argv[3])
