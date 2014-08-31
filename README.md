@@ -17,7 +17,7 @@ Another additional note: Has not been tested on Windows.  Windows support is exp
 
 How to run
 ==========
-First, run git clone https://github.com/iggyvolz/fetch-dl.git and cd into it (or download the script [directly][4]).  Then, you may simply run `./fetch-dl [episode number] [output file]` (Windows users and Mac/Linux users with Python installed elsewhere than /usr/bin/python should use `python fetch-dl [episode number] [output file]`).  You can also move fetch-dl into your $PATH to run it anywhere!
+First, run git clone https://github.com/iggyvolz/korra-dl.git and cd into it (or download the script [directly][4]).  Then, you may simply run `./korra-dl [episode number] [output file]` (Windows users and Mac/Linux users with Python installed elsewhere than /usr/bin/python should use `python korra-dl [episode number] [output file]`).  You can also move fetch-dl into your $PATH to run it anywhere!
 
 [1]: http://brew.sh
 [2]: http://www.ubuntu.com/
