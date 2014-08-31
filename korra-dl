@@ -9,7 +9,7 @@ from xml.etree import ElementTree
 if int(sys.argv[1]) == 110 or int(sys.argv[1]) == 203:
   sys.exit("ERROR: Episodes 110 \"Turning the Tides\" and 203 \"Civil Wars, Part 1\" are disabled.")
 if int(sys.argv[2])>7:
-  sys.exit ("ERROR: Invalid output type.  Use types 1-7, see iggyvolz.github.io/korra-dl/types.html for details")
+  sys.exit ("ERROR: Invalid output type.  Use types 1-7, see https://github.com/iggyvolz/korra-dl/wiki/Output-Types for details")
 episodehash={
   101:"11f4711a-4d56-4961-97f6-ee3fded0ed3a"
   102:"3176b6af-dda9-4b3b-a725-0fbc9c897c24"
