@@ -3,13 +3,12 @@ Download episodes of The Legend of Korra on the terminal, directly from the Nick
 Prerequisites
 =============
 *ffmpeg
-*curl
 *python (2 or 3)
 *git (optional)
 
-If not pre-installed, all three of these can be installed quickly using [brew][1], [apt-get][2], or [chocolatey][3].  Run `(brew install/sudo apt-get install/cinst) ffmpeg curl python git`
+If not pre-installed, all three of these can be installed quickly using [brew][1], [apt-get][2], or [chocolatey][3].  Run `(brew install/sudo apt-get install/cinst) ffmpeg python git`
 
-Note: Mac already includes curl, python, and git, so there is no need to install these using brew.
+Note: Mac already includes python and git, so there is no need to install these using brew.
 
 Additional note: Ubuntu felt the need to rename ffmpeg and make changes to it.  To install the actual ffmpeg, run `sudo apt-add-repository ppa:jon-severinsson/ffmpeg;sudo apt-get update` before attempting to install ffmpeg.
 
