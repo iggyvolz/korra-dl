@@ -17,7 +17,20 @@ Another additional note: Has not been tested on Windows.  Windows support is exp
 
 How to run
 ==========
-First, run git clone https://github.com/iggyvolz/korra-dl.git and cd into it (or download the script [directly][4]).  Then, you may simply run `./korra-dl [episode number] [output file]` (Windows users and Mac/Linux users with Python installed elsewhere than /usr/bin/python should use `python korra-dl [episode number] [output file]`).  You can also move fetch-dl into your $PATH to run it anywhere!
+First, run git clone https://github.com/iggyvolz/korra-dl.git and cd into it (or download the script [directly][4]).  Then, you may simply run `./korra-dl [episode number] [output type] [output file]` (Windows users and Mac/Linux users with Python installed elsewhere than /usr/bin/python should use `python korra-dl [episode number] [output type] [output file]`).  You can also move korra-dl into your $PATH to run it anywhere, without the "./"!
+
+Output types
+============
+Nick offers 7 output types for download, and these are all available using the output type parameter (the second parameter).  The higher the format number, the better quality the video is, and the longer it takes to download:
+| Format | Width | Height | Bitrate |
+|--------|-------|--------|---------|
+| 1      | 384   | 216    | 300     |
+| 2      | 384   | 216    | 400     |
+| 3      | 512   | 288    | 750     |
+| 4      | 640   | 360    | 1200    |
+| 5      | 768   | 432    | 1700    |
+| 6      | 960   | 540    | 2200    |
+| 7      | 1280  | 720    | 3500    |
 
 [1]: http://brew.sh
 [2]: http://www.ubuntu.com/
