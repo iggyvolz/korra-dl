@@ -5,7 +5,16 @@ import os
 import requests
 import string
 import random
+import pipes
 from xml.etree import ElementTree
+if sys.argv[1] == "-U":
+  this=os.path.realpath(__file__)
+  release=requests.get("https://api.github.com/repos/iggyvolz/korra-dl/releases?access_token=85abd30733ad6da19fffeb9e34bb780fe2de4810")
+  asset=requests.get(release.json()[0]["assets_url"]+"?access_token=85abd30733ad6da19fffeb9e34bb780fe2de4810")
+  url=asset.json()[0]["browser_download_url"]
+  version=release.json()[0]["tag_name"]
+  os.system("curl -L "+pipes.quote(url)+">"+pipes.quote(this))
+  sys.exit("Updated to newest version, "+version)
 if int(sys.argv[1]) == 110 or int(sys.argv[1]) == 203:
   sys.exit("ERROR: Episodes 110 \"Turning the Tides\" and 203 \"Civil Wars, Part 1\" are disabled.")
 if int(sys.argv[2])>7:
