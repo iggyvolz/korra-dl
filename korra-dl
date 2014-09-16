@@ -65,7 +65,7 @@ for (i,item) in enumerate(ElementTree.XML(r.text)[0].findall("item")):
     os.system('echo "file \'/tmp/korra-dl-'+randomstring+'_'+str(i)+'.mp4\'">>/tmp/korra-dl-'+randomstring+'_cache')
 if os.name == "nt":
   os.system('ffmpeg -f concat -i \%temp\%\\korra-dl-'+randomstring+'_cache -c copy '+sys.argv[3])
-  os.system('unlink \%temp\%\\korra-dl*')
+  os.system('rm \%temp\%\\korra-dl*')
 else:
   os.system('ffmpeg -f concat -i /tmp/korra-dl-'+randomstring+'_cache -c copy '+sys.argv[3])
-  os.system('unlink /tmp/korra-dl*')
+  os.system('rm /tmp/korra-dl*')
