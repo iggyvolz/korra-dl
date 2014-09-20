@@ -1,3 +1,5 @@
+Current version: 2014.09.20.1
+
 Download episodes of The Legend of Korra on the terminal, directly from the Nickelodeon API!
 
 Prerequisites
