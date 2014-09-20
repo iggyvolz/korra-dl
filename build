@@ -1,4 +1,4 @@
-unlink korra-dl
+rm -f korra-dl
 OIFS=IFS
 IFS=";"
 for x in `cat korra-dl-template`
