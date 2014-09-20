@@ -10,17 +10,8 @@ push-tag:
 create-release:
 	@github-release release -t $(tag_name)
 	@github-release upload -t $(tag_name) -n korra-dl -f korra-dl
-drone-io:
-	if [ "$(latest_tag)" == "#tag" ];then make drone-io-tag;fi
 drone-io-tag: create-tag drone-io-push-tag create-release
 drone-io-push-tag:
 	git remote set-url origin https://github.com/iggyvolz/korra-dl.git
 	sudo apt-get install expect
-	expect <<EOF
-	spawn git push --tags
-	expect "Username for 'https://github.com': "
-	send "$user\r"
-	expect "Password for 'https://iggyvolz@github.com': "
-	send $pass\r"
-	expect eof
-	EOF
+	expect <<EOF spawn git push --tags; expect "Username for 'https://github.com': "; send "$user\r"; expect "Password for 'https://iggyvolz@github.com': "; send $pass\r"; expect eof;EOF
