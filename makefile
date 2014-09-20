@@ -14,5 +14,12 @@ drone-io-tag: create-tag drone-io-push-tag create-release
 drone-io-push-tag:
 	git remote set-url origin https://github.com/iggyvolz/korra-dl.git
 	sudo apt-get install expect
-	echo "spawn git push --tags; expect \"Username for 'https://github.com': \"; send \"$(user)\\r\"; expect \"Password for 'https://iggyvolz@github.com': \"; send $(pass)\\r\"; expect eof">expect_script
-	expect expect_script
+	echo "expect <<EOF">expect_script
+	echo "spawn git push --tags">>expect_script
+	echo "expect \"Username for 'https://github.com': \"">>expect_script
+	echo "send \"\$user\\r\"">>expect_script
+	echo "expect \"Password for 'https://iggyvolz@github.com': \"">>expect_script
+	echo "send \$pass\\r\"">>expect_script
+	echo "expect eof">>expect_script
+	echo "EOF">>expect_script
+	bash expect_script
