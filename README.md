@@ -1,5 +1,7 @@
 Current version: 2014.09.20.1
 
+[![Build Status](https://drone.io/github.com/iggyvolz/korra-dl/status.png)](https://drone.io/github.com/iggyvolz/korra-dl/latest)
+
 Download episodes of The Legend of Korra on the terminal, directly from the Nickelodeon API!
 
 Prerequisites
