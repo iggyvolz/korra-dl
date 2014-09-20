@@ -1,0 +1,26 @@
+unlink korra-dl
+OIFS=IFS
+IFS=";"
+for x in `cat korra-dl-template`
+do
+  if [ "$SECOND" ];then
+    continue
+  fi
+  echo $x>korra-dl
+  SECOND="y"
+done
+cd episodes
+for file in *
+do
+  echo "  $file:\"`cat $file|tr -d '\n'`\",">>../korra-dl
+done
+cd ..
+SECOND=""
+for x in `cat korra-dl-template`
+do
+  if [ "$SECOND" ];then
+    echo $x>>korra-dl
+  fi
+  SECOND="y"
+done
+IFS=OIFS
