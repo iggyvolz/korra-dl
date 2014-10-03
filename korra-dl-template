@@ -34,10 +34,10 @@ for (i,item) in enumerate(ElementTree.XML(text)[0].findall("item")):
   url=ElementTree.XML(s.text)[0][0][int(sys.argv[2])-1][0].text
   if os.name == "nt":
     os.system("ffmpeg -i "+url+" %TEMP%\\korra-dl\\"+randomstring+"_"+str(i)+".mp4")
-    os.system('echo file \'%TEMP%\\korra-dl\\'+randomstring+'_'+str(i)+'.mp4\'>>%TEMP%\\korra-dl-'+randomstring+'_cache')
+    os.system('echo file \'%TEMP%\\korra-dl\\'+randomstring+'_'+str(i)+'.mp4\'>>%TEMP%\\korra-dl\\'+randomstring+'_cache')
   else:
     os.system("ffmpeg -i "+url+" /tmp/korra-dl/"+randomstring+"_"+str(i)+".mp4")
-    os.system('echo "file \'/tmp/korra-dl/'+randomstring+'_'+str(i)+'.mp4\'">>/tmp/korra-dl-'+randomstring+'_cache')
+    os.system('echo "file \'/tmp/korra-dl/'+randomstring+'_'+str(i)+'.mp4\'">>/tmp/korra-dl/'+randomstring+'_cache')
 if os.name == "nt":
   os.system('ffmpeg -f concat -i %TEMP%\\korra-dl\\'+randomstring+'_cache -c copy '+sys.argv[3])
   os.system('del %TEMP%\\korra-dl && rmdir %TEMP%\\korra-dl')
