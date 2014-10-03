@@ -9,7 +9,7 @@ asset=requests.get(release.json()[0]["assets_url"])
 url=asset.json()[0]["browser_download_url"]
 version=release.json()[0]["tag_name"]
 if os.name == "nt":
-  os.system("curl -L "+pipes.quote(url)+">C:\tools\python\Scripts\korra-dl")
+  os.system("curl -L "+pipes.quote(url)+" -o C:\tools\python\Scripts\korra-dl")
 else:
   os.system("curl -L "+pipes.quote(url)+">/usr/local/bin/korra-dl && chmod +x /usr/local/bin/korra-dl")
 sys.exit("Installed latest version of korra-dl.  To update, type (sudo) korra-dl -U.")
