@@ -26,21 +26,21 @@ r=requests.get("http://udat.mtvnservices.com/service1/dispatch.htm?feed=nick_arc
 text=r.text.replace(u'\u2019',"'")
 randomstring=''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
 if os.name == "nt":
-  os.system('mkdir \%temp\%\\korra-dl')
+  os.system('mkdir %TEMP%\\korra-dl')
 else:
   os.system('mkdir /tmp/korra-dl')
 for (i,item) in enumerate(ElementTree.XML(text)[0].findall("item")):
   s=requests.get(item[4][0].get("url"))
   url=ElementTree.XML(s.text)[0][0][int(sys.argv[2])-1][0].text
   if os.name == "nt":
-    os.system("ffmpeg -i "+url+" \%temp\%\\korra-dl\\"+randomstring+"_"+str(i)+".mp4")
-    os.system('echo file \'\%temp\%\\korra-dl\\'+randomstring+'_'+str(i)+'.mp4\'>>\%temp\%\\korra-dl-'+randomstring+'_cache')
+    os.system("ffmpeg -i "+url+" %TEMP%\\korra-dl\\"+randomstring+"_"+str(i)+".mp4")
+    os.system('echo file \'%TEMP%\\korra-dl\\'+randomstring+'_'+str(i)+'.mp4\'>>%TEMP%\\korra-dl-'+randomstring+'_cache')
   else:
     os.system("ffmpeg -i "+url+" /tmp/korra-dl/"+randomstring+"_"+str(i)+".mp4")
     os.system('echo "file \'/tmp/korra-dl/'+randomstring+'_'+str(i)+'.mp4\'">>/tmp/korra-dl-'+randomstring+'_cache')
 if os.name == "nt":
-  os.system('ffmpeg -f concat -i \%temp\%\\korra-dl\\'+randomstring+'_cache -c copy '+sys.argv[3])
-  os.system('del \%temp\%\\korra-dl')
+  os.system('ffmpeg -f concat -i %TEMP%\\korra-dl\\'+randomstring+'_cache -c copy '+sys.argv[3])
+  os.system('del %TEMP%\\korra-dl && rmdir %TEMP%\\korra-dl')
 else:
   os.system('ffmpeg -f concat -i /tmp/korra-dl/'+randomstring+'_cache -c copy '+sys.argv[3])
   os.system('rm -R /tmp/korra-dl')
