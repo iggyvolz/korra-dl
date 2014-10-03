@@ -20,7 +20,13 @@ Another additional note: Has not been tested on Windows.  Windows support is exp
 
 How to run
 ==========
-First, run git clone https://github.com/iggyvolz/korra-dl.git and cd into it (or download the script [directly][4]).  Then, you may simply run `./korra-dl [episode number] [output type] [output file]` (Windows users and Mac/Linux users with Python installed elsewhere than /usr/bin/python should use `python korra-dl [episode number] [output type] [output file]`).  You can also move korra-dl into your $PATH to run it anywhere, without the "./"!
+Run the following script to install to /usr/local/bin/korra-dl:
+```bash
+curl https://raw.githubusercontent.com/iggyvolz/korra-dl/go/install|python
+```
+You can also clone the repo and run ./build to build from the episodes folder.
+
+The syntax is korra-dl [episode number] [output type] [output file].
 
 Output types
 ============
