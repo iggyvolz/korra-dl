@@ -1,4 +1,4 @@
-Current version: 2014.10.3.1
+Current version: 2014.10.3.2
 
 [![Build Status](https://drone.io/github.com/iggyvolz/korra-dl/status.png)](https://drone.io/github.com/iggyvolz/korra-dl/latest)
 
