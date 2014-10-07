@@ -15,8 +15,10 @@ if sys.argv[1] == "-U":
   version=release.json()[0]["tag_name"]
   os.system("curl -L "+pipes.quote(url)+">"+pipes.quote(this))
   sys.exit("Updated to newest version, "+version)
-if int(sys.argv[1]) == 110 or int(sys.argv[1]) == 203:
-  sys.exit("ERROR: Episodes 110 \"Turning the Tides\" and 203 \"Civil Wars, Part 1\" are disabled.")
+if int(sys.argv[1]) < 309:
+  sys.exit("See https://github.com/iggyvolz/korra-dl/issues/3 - These episodes may no longer be available.")
+#if int(sys.argv[1]) == 110 or int(sys.argv[1]) == 203:
+#  sys.exit("ERROR: Episodes 110 \"Turning the Tides\" and 203 \"Civil Wars, Part 1\" are disabled.")
 if int(sys.argv[2])>7:
   sys.exit ("ERROR: Invalid output type.  Use types 1-7, see https://github.com/iggyvolz/korra-dl/wiki/Output-Types for details")
 episodehash={;}.get(int(sys.argv[1]),None)
