@@ -25,8 +25,8 @@ episodehash={;}.get(int(sys.argv[1]),None)
 if episodehash is None:
   sys.exit("ERROR: Invalid episode number.  Episode numbers should be in the following format: Season number (1-4) followed by episode number (01-14)")
 r=requests.get("http://udat.mtvnservices.com/service1/dispatch.htm?feed=nick_arc_player_prime&plugin.stage=live&mgid=mgid:arc:episode:nick.com:"+episodehash)
-text=r.text.replace(u'\u2019',"'")
 text=r.text.replace(u'\u2013',"'")
+text=r.text.replace(u'\u2019',"'")
 randomstring=''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
 if os.name == "nt":
   os.system('mkdir %TEMP%\\korra-dl')
