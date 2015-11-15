@@ -15,8 +15,8 @@ if sys.argv[1] == "-U":
   version=release.json()[0]["tag_name"]
   os.system("curl -L "+pipes.quote(url)+">"+pipes.quote(this))
   sys.exit("Updated to newest version, "+version)
-if int(sys.argv[1]) < 401:
-  sys.exit("See https://github.com/iggyvolz/korra-dl/issues/3 - You need to sign in with your cable/satellite provider which has not yet been integrated with korra-dl.")
+#if int(sys.argv[1]) < 401:
+#  sys.exit("See https://github.com/iggyvolz/korra-dl/issues/3 - You need to sign in with your cable/satellite provider which has not yet been integrated with korra-dl.")
 #if int(sys.argv[1]) == 110 or int(sys.argv[1]) == 203:
 #  sys.exit("ERROR: Episodes 110 \"Turning the Tides\" and 203 \"Civil Wars, Part 1\" are disabled.")
 if int(sys.argv[2])>7:
